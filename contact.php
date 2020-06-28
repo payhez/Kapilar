@@ -42,7 +42,7 @@
             <!-- Contact Form -->
             <div class="s-12 m-12 l-6">
             <h2 class="text-uppercase text-strong margin-bottom-30">Contact Us</h2>
-            <form class="customform">
+            <form class="customform" method="POST" action="mail.php">
                 <div class="line">
                 <div class="margin">
                     <div class="s-12 m-12 l-6">
@@ -59,7 +59,7 @@
                 <div class="s-12">
                 <textarea name="message" class="required message border-radius" placeholder="Your message" rows="3"></textarea>
                 </div>
-                <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Submit Button</button></div> 
+                <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Send</button></div> 
             </form>
             </div>  
         </div>  

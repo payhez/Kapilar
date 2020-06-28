@@ -2,46 +2,23 @@
     include('includes/header.php');
     include('admin/config.php');
 ?>
-<div class="w3-content w3-display-container">
+<div class="slideshow-container">
   <?php
     $query = "SELECT * FROM slider;";
     $sonuc=mysqli_query($conn, $query);
     while($row = mysqli_fetch_assoc($sonuc)){
         $baslik = $row['baslik'];
         $path = $row['main_photo'];
-        echo '<div class="w3-display-container mySlides">
-                <img src="'.$path.'" style="width:100%">
-                  <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                  '.$baslik.'
-                  </div>
-              </div>';
+        echo 
+        '<div class="mySlides fade">
+          <img src="'.$path.'" style="object-fit: cover; height: 100%; width:100%">
+          <div class="text">'.$baslik.'</div>
+        </div>';
     }
   ?>
-
-<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
-
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script>
 
 <section class="section background-white"> 
   <div  class="line">

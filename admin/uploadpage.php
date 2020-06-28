@@ -1,20 +1,46 @@
 <?php
 // Initialize the session
+    include_once 'classes.php';
     session_start();
-    
+    include_once 'config.php';
+    $user = $_SESSION['user'];
     // Check if the user is logged in, if not then redirect him to login page
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         header("location: index.php");
         exit;
     }
 ?>
-<?php
-    include_once 'config.php';
-?>
+
 <?php
     if(isset($_POST['submit'])){
-        $type = $_POST['secim'];
-        if($type == 'aktivite' || $type == 'haber'){
+        $type = $_POST['choice'];
+
+        $name = $_POST['name'];
+        $mainphoto = $_FILES['mainPhoto'];
+        $description = $_POST['description'];
+        $photos = $_FILES['photos'];
+        $language = $_POST['language'];
+        $sql ="";
+
+        switch ($type) {
+            case 'aktivite':
+              $sql=$user->addActivity($name,$description,$mainphoto,$photos,$language,$user);
+              break;
+            case 'haber':
+              $sql=$user->addNews($name,$description,$mainphoto,$language,$user);
+              break;
+            case 'slider':
+              $sql=$user->addSlider($name,$mainphoto,$language);
+              break;
+            default:
+              echo 'Seçeneklerden birini seç';
+          }
+        if($sql!=""){
+            mysqli_query($conn,$sql);
+        }else{
+            echo "Failed to load to Database";
+        }
+        /*if($type == 'aktivite' || $type == 'haber'){
             $path = '../img/'.$_POST['ad'].'/';
             $path3 = 'img/'.$_POST['ad'].'/';
             $dbpath = 'img/'.$_POST['ad'].'/'.$_FILES['anaFoto']['name'];
@@ -43,13 +69,10 @@
             $img=resize_image($_FILES['anaFoto']['tmp_name']);
             imagejpeg($img,"../".$sliderpath);
             $sql= "insert into ".$type." (baslik, main_photo) values ('".$_POST['ad']."','".$sliderpath."');";
-        }else{
-            echo "Please pick an option!";
-            header("uploadpage.php");
-        }
-        mysqli_query($conn,$sql);
+        }*/
+        
     }
-    function resize_image($file) {
+    /*function resize_image($file) {
         // Set a  fixed height and width 
         $width = 900; 
         $height = 600; 
@@ -61,7 +84,7 @@
         $image = imagecreatefromjpeg($file); 
         imagecopyresized($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
         return $image_p;
-    }
+    }*/
 ?>
 <!DOCTYPE html >
 <html>
@@ -84,36 +107,47 @@
 		        <li id="li_1" >
 		            <label class="description">Aktivite/Haber Adı </label>
                     <div>
-                        <input name="ad" class="element text medium" type="text" maxlength="255" value=""/> 
+                        <input name="name" class="element text medium" type="text" maxlength="255" value=""/> 
                     </div> 
                 </li>		
                 <li id="li_2" >
                     <label class="description">Açıklama <a href="https://wordtohtml.net/">WordToHTML</a> </label>
                     <div>
-                        <textarea name="aciklama" class="element textarea medium"></textarea> 
+                        <textarea name="description" class="element textarea medium"></textarea> 
                     </div> 
                 </li>		
                 <li id="li_3" >
                     <label class="description" >Ana Fotoğraf Yükle </label>
                     <div>
-                        <input name="anaFoto" class="element file" type="file"/> 
+                        <input name="mainPhoto" class="element file" type="file"/> 
                     </div>  
                 </li>		
                         <li id="li_4" >
                         <label class="description" >Diğer bütün fotoğraflar(Sadece Aktiviteler için) </label>
                         <div>
-                            <input name="foto[]" class="element file" type="file" multiple/> 
+                            <input name="photos[]" class="element file" type="file" multiple/> 
                         </div>  
                         </li>		
                         <li id="li_5" >
                         <label class="description">Yükleme Tipi </label>
                         <span>
-                            <input name="secim" class="element radio" type="radio"  value="haber" />
+                            <input name="choice" class="element radio" type="radio"  value="haber" />
                             <label class="choice">Haber</label>
-                            <input  name="secim" class="element radio" type="radio" value="aktivite" />
+                            <input  name="choice" class="element radio" type="radio" value="aktivite" />
                             <label class="choice">Aktivite</label>
-                            <input  name="secim" class="element radio" type="radio" value="slider" />
+                            <input  name="choice" class="element radio" type="radio" value="slider" />
                             <label class="choice">Slide</label>
+                        </span> 
+                        </li>
+                        <li id="li_5" >
+                        <label class="description">Yükleme Tipi </label>
+                        <span>
+                            <input name="language" class="element radio" type="radio"  value="en" />
+                            <label class="choice">English</label>
+                            <input  name="language" class="element radio" type="radio" value="tr" />
+                            <label class="choice">Turkce</label>
+                            <input  name="language" class="element radio" type="radio" value="ar" />
+                            <label class="choice">Arabic</label>
                         </span> 
                         </li>
                             <li class="buttons">

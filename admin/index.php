@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
  
 // Include config file
 require_once "config.php";
- 
+require_once "classes.php";
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -59,12 +59,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $hashed_password = $row['password'];
                     if($password == $hashed_password){
                         // Password is correct, so start a new session
-                        session_start();
-                        
+                        $user = new User($username, $password);
                         // Store data in session variables
                         $_SESSION["loggedin"] = true;
-                        $_SESSION["username"] = $username;                            
-                    
+                        $_SESSION["user"] = $user;     
                         // Redirect user to welcome page
                         header("location: uploadpage.php");
                     } else{

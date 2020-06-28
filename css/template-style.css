@@ -319,7 +319,7 @@ video {
 nav {
   border-bottom: 4px solid rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 1.7rem 0;
+  /*padding: 1.7rem 0;*/
   position: relative;
   z-index: 2;
 }  

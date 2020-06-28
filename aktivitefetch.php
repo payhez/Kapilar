@@ -10,7 +10,7 @@
             $aciklama = $row['context'];
             $path = $row['main_photo'];
             echo '<div class="s-12 m-12 l-4 margin-m-bottom">
-                    <img class="margin-bottom" src="'.$path.'" alt="">
+                    <img class="margin-bottom" src="'.$path.'" style="object-fit: cover; width: 500px; height: 250px;" alt="">
                     <h2 class="text-thin">'.$baslik.'</h2>
                     <a class="text-more-info text-primary-hover" href="activity.php?id='.$id.'">Read..</a>                
                     </div>';

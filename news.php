@@ -15,7 +15,7 @@
 <article>
         <div class="section background-white"> 
           <div class="line">
-          <img src="<?php echo $row['main_photo'] ?>"/>
+          <img src="<?php echo $row['main_photo'] ?>" style="object-fit: cover; width: 900px; height: 450px; margin-left:auto; margin-right:auto;" />
           <h2 class="text-thin headline text-center text-s-size-30 margin-bottom-50"><?php echo $row['name'] ?></h2>
             <br>
             <p>

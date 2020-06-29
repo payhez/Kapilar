@@ -1,2 +1,7 @@
-# Example of a `.gitattributes` file which reclassifies `.rb` files as Java:
-*.rb linguist-language=PHP
+*.css linguist-detectable=false
+*.java linguist-detectable=true
+*.python linguist-detectable=true 
+*.js linguist-detectable=false
+*.html linguist-detectable=false  
+*.xml linguist-detectable=false 
+*.php linguist-detectable=true 

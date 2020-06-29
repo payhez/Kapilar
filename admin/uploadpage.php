@@ -91,9 +91,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yükleme</title>
+<script type="text/javascript" src="scripts/widgEditor.js"></script>
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
-<script type="text/javascript" src="view.js"></script>
-
+<style type="text/css" media="all">
+	@import "css/widgEditor.css";
+</style>
 </head>
 <body id="main_body" >
 	<div id="form_container">
@@ -110,10 +112,10 @@
                         <input name="name" class="element text medium" type="text" maxlength="255" value=""/> 
                     </div> 
                 </li>		
-                <li id="li_2" >
-                    <label class="description">Açıklama <a href="https://wordtohtml.net/">WordToHTML</a> </label>
+                <li id="li_2" style="width: auto;">
+                    <label class="description">Açıklama </label>
                     <div>
-                        <textarea name="description" class="element textarea medium"></textarea> 
+                        <textarea name="description" class="widgEditor nothing"></textarea> 
                     </div> 
                 </li>		
                 <li id="li_3" >

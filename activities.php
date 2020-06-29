@@ -3,7 +3,7 @@
 ?>
 <section class="section background-white">
   <div class="line">
-    <h2 class="text-thin headline text-center text-s-size-30 margin-bottom-50">Our Activities</h2>
+    <h2 class="text-thin headline text-center text-s-size-30 margin-bottom-50"><?php echo $lang['ouract']?></h2>
     <div id="load_data" class="margin">
     </div>
     <div id="load_data_message">

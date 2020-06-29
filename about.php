@@ -12,7 +12,7 @@
             <p class="margin-bottom-30">
             Kapılar works to be a welcoming and safer space for people to come together, to socialise, and to share useful information regarding life in Basmane and Izmir. It is a space for all regardless of nationality, ethnicity, religion, gender, sexual orientation, ability or age.
             </p></b>
-            <img src="img/add.jpg"/>
+            <img style="margin-left:auto; margin-right:auto;" src="img/about page/1.jpg"/>
             <br/>
           </div>
           <div class="line">
@@ -27,7 +27,7 @@
             <p class="margin-bottom-30">
             <b>The community is financially poor,</b> housing is crowded, education is limited, job opportunities are rare and basic needs are barely met. Discrimination is an everyday issue, despite community efforts to address them. Kapılar aims to confront these divisions through cultural activities and community building.
             </p>
-            <img src="img/addw.jpg"/>
+            <img style="margin-left:auto; margin-right:auto;" src="img/about page/2.jpg"/>
             <br/>
           </div>
           <div class="line">
@@ -59,7 +59,7 @@
             Using language lessons, translations and the sharing of information on rights, work opportunities and accessing services as mediums for exchange, Kapılar serves as a cultural mediator between Basmane’s many communities.
             We also host an information point which locals can access weekly to learn more about their rights and obligations, receive information on how to register, access education and health services, as well as referring people to relevant local services run by public institutions and non-governmental organisations.
             </p>
-            <img src="img/addf.jpg"/>
+            <img style="margin-left:auto; margin-right:auto;" src="img/about page/3.jpg"/>
             <br/>
           </div>
         </div>

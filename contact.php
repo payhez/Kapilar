@@ -7,12 +7,12 @@
             
             <!-- Company Information -->
             <div class="s-12 m-12 l-6">
-                <h2 class="text-uppercase text-strong margin-bottom-30">Information</h2>
+                <h2 class="text-uppercase text-strong margin-bottom-30"><?php echo $lang['information'] ?></h2>
                 <div class="float-left">
                   <i class="icon-placepin background-primary icon-circle-small text-size-20"></i>
                 </div>
                 <div class="margin-left-80 margin-bottom">
-                  <h4 class="text-strong margin-bottom-0">Address</h4>
+                  <h4 class="text-strong margin-bottom-0"><?php echo $lang['address'] ?></h4>
                   <p>Etiler Mh. 1270. Sk.<br>
                     No:8 Kapilar<br>
                     Basmane, Izmir
@@ -31,7 +31,7 @@
                   <i class="icon-smartphone background-primary icon-circle-small text-size-20"></i>
                 </div>
                 <div class="margin-left-80">
-                  <h4 class="text-strong margin-bottom-0">Phone Numbers</h4>
+                  <h4 class="text-strong margin-bottom-0"><?php echo $lang['phone'] ?></h4>
                   <p>0800 4521 800 50<br>
                      0450 5896 625 16<br>
                      0798 6546 465 15
@@ -41,7 +41,7 @@
             
             <!-- Contact Form -->
             <div class="s-12 m-12 l-6">
-            <h2 class="text-uppercase text-strong margin-bottom-30">Contact Us</h2>
+            <h2 class="text-uppercase text-strong margin-bottom-30"><?php echo $lang['contactus'] ?></h2>
             <form class="customform" method="POST" action="mail.php">
                 <div class="line">
                 <div class="margin">

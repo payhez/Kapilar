@@ -12,41 +12,20 @@
         header('activities.php');
     }
 ?>
-<div class="w3-content w3-display-container">
+<div class="slideshow-container">
   <?php
     $path = $row['path'];
     $files = glob(''.$path.'/*.{jpg}', GLOB_BRACE);
     foreach($files as $file) {
-        echo '<div class="w3-display-container mySlides">
-            <img src="'.$file.'" style="width:100%">
-        </div>';
+        echo '<div class="mySlides fade">
+        <img src="'.$file.'" style="object-fit: cover; height: 100%; width:100%">
+      </div>';
     }
   ?>
-
-<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
 </div>
-
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script>
 <article>
         <div class="section background-white"> 
           <div class="line">

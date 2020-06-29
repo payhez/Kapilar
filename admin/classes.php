@@ -80,7 +80,6 @@
         {
             $this->addMulFile();
             $sql= "insert into aktivite (name, context, main_photo,path,language,date,username) values ('".$this->title."','".$this->description."','".$this->mainpic."','".$this->picspath."','".$this->language."','".date("d/m/Y")."','".$this->username."');";
-            echo $sql;
             return $sql;
         }
     }

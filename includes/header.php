@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/responsee.css">
+    <link rel="stylesheet" href="css/loader.css">
     <!-- CUSTOM STYLE -->
     <link rel="stylesheet" href="css/template-style.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>

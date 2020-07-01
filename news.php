@@ -5,6 +5,8 @@
     include('admin/config.php');
     if(isset($_GET['id'])){
         $id= $_GET['id'];
+        $query = "SET CHARACTER SET utf8";
+        $result = mysqli_query($conn, $query);
         $sql = "SELECT * FROM haber WHERE id=".$id.";";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
@@ -15,7 +17,7 @@
 <article>
         <div class="section background-white"> 
           <div class="line">
-          <img src="<?php echo $row['main_photo'] ?>" style="margin-left:auto; margin-right:auto;" />
+          <img src="<?php echo $row['main_photo'] ?>" style="margin-left:auto; margin-right:auto; max-height:1000px;" />
           <h2 class="text-thin headline text-center text-s-size-30 margin-bottom-50"><?php echo $row['name'] ?></h2>
             <br>
             <p>

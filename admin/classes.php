@@ -1,15 +1,16 @@
 <?php
-    abstract class Content{
-        public $title;
+    abstract class Content{ // Superclass of all contents
+        public $title; 
         public $description;
-        public $mainpic;
+        public $mainpic; // The main picture of the content
         public $language;
 
-        abstract function addQuery();
+        abstract function addQuery(); // Adds the content to MySql DB
 
         function addFile(){
-            $path = '../img/'.$this->title.'/';
-            $path2 = 'img/'.$this->title.'/';
+            $date = strval(date("d.m.Y"));
+            $path = '../img/'.$this->title.' '.$date.'/';
+            $path2 = 'img/'.$this->title.' '.$date.'/';
             mkdir($path);
             $textfile = fopen($path.$this->title.".txt","w") or die("Unable to open file");
             fwrite($textfile, $this->description);
@@ -62,9 +63,9 @@
 
         function addMulFile(){
             $this->addFile();
-
-            $path = '../img/'.$this->title.'/';
-            $path2 = 'img/'.$this->title.'/';
+            $date = strval(date("d.m.Y"));
+            $path = '../img/'.$this->title.' '.$date.'/';
+            $path2 = 'img/'.$this->title.' '.$date.'/';
             $picspath = $path."photos/";
             $dbpath = $path2."photos/"; 
             mkdir($picspath);

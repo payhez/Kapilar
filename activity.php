@@ -5,6 +5,8 @@
     include('admin/config.php');
     if(isset($_GET['id'])){
         $id= $_GET['id'];
+        $query = "SET CHARACTER SET utf8";
+        $result = mysqli_query($conn, $query);
         $sql = "SELECT * FROM aktivite WHERE id=".$id.";";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);

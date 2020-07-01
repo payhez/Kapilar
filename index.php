@@ -51,6 +51,7 @@
           action = 'active';
         }
         else{
+          $('#load_data_message').html("<div class='loader'></div>");
           action = 'inactive';
         }
       }
@@ -69,7 +70,11 @@
     start = start + limit;
     setTimeout(function(){
       load_country_data(limit, start);
-    }, 1000);
+    }, 500);
+    }else{
+      setTimeout(function(){
+        $('#load_data_message').hide();
+      }, 2000);
     }
   });
   

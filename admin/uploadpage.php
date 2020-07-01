@@ -27,6 +27,7 @@
               $sql=$user->addActivity($name,$description,$mainphoto,$photos,$language,$user);
               break;
             case 'haber':
+                echo $name;
               $sql=$user->addNews($name,$description,$mainphoto,$language,$user);
               break;
             case 'slider':
@@ -36,58 +37,14 @@
               echo 'Seçeneklerden birini seç';
           }
         if($sql!=""){
+            echo $sql;
             mysqli_query($conn,$sql);
         }else{
             echo "Failed to load to Database";
         }
-        /*if($type == 'aktivite' || $type == 'haber'){
-            $path = '../img/'.$_POST['ad'].'/';
-            $path3 = 'img/'.$_POST['ad'].'/';
-            $dbpath = 'img/'.$_POST['ad'].'/'.$_FILES['anaFoto']['name'];
-            mkdir($path);
-            $textpath = $path3.$_POST['ad'].".txt";
-            $textfile = fopen($path.$_POST['ad'].".txt","w") or die("Unable to open file");
-            fwrite($textfile, $_POST['aciklama']);
-            $img=resize_image($_FILES['anaFoto']['tmp_name']);
-            imagejpeg($img,$path.$_FILES['anaFoto']['name']);
-            if($type == 'aktivite'){
-                $path2 = $path."photos/";
-                $dbpath2 = $path3."photos/"; 
-                mkdir($path2);
-                $sql= "insert into ".$type." (name, context, main_photo, path) values ('".$_POST['ad']."','".$textpath."','".$dbpath."','".$dbpath2."');";
-                foreach ($_FILES['foto']['tmp_name'] as $key => $image) {
-                    $imageName = $_FILES['foto']['name'][$key];
-                    $imageTmpName = $_FILES['foto']['tmp_name'][$key];
-                    $image=resize_image($imageTmpName);
-                    imagejpeg($image,$path2.$imageName);
-                }
-            }else if($type == 'haber'){
-                $sql= "insert into ".$type." (name, context, main_photo) values ('".$_POST['ad']."','".$textpath."','".$dbpath."');";
-            }
-        }else if($type == 'slider'){
-            $sliderpath = "img/slider/".$_FILES['anaFoto']['name'];
-            $img=resize_image($_FILES['anaFoto']['tmp_name']);
-            imagejpeg($img,"../".$sliderpath);
-            $sql= "insert into ".$type." (baslik, main_photo) values ('".$_POST['ad']."','".$sliderpath."');";
-        }*/
-        
     }
-    /*function resize_image($file) {
-        // Set a  fixed height and width 
-        $width = 900; 
-        $height = 600; 
-  
-        list($width_orig, $height_orig) = getimagesize($file); 
-        echo $width_orig.'<br>'.$height_orig;
-  
-        $image_p = imagecreatetruecolor($width, $height); 
-        $image = imagecreatefromjpeg($file); 
-        imagecopyresized($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
-        return $image_p;
-    }*/
 ?>
-<!DOCTYPE html >
-<html>
+<html lang="tr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yükleme</title>
@@ -99,7 +56,6 @@
 </head>
 <body id="main_body" >
 	<div id="form_container">
-		<h1><a>Yükleme</a></h1>
 		<form id="form_115110" class="appnitro" enctype="multipart/form-data" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 					<div class="form_description">
 			<h2>Yükleme</h2>
